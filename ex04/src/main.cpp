@@ -54,7 +54,7 @@ static int	replace_file( const std::string & filename, const std::string & s1, c
 	std::ifstream ifs(filename);
 	if ( ifs.fail() )
 	{
-		std::cerr << "Error: Failed to open input file." << std::endl ;
+		std::cerr << "Error: Failed to open: " << filename << std::endl ;
 		return EXIT_FAILURE ;
 	}
 
@@ -62,7 +62,7 @@ static int	replace_file( const std::string & filename, const std::string & s1, c
 	std::ofstream ofs(filename + ".replace", std::ofstream::out | std::ofstream::trunc);
 	if ( ofs.fail() )
 	{
-		std::cerr << "Error: Failed to open output file." << std::endl ;
+		std::cerr << "Error: Failed to open: " << filename + ".replace" << std::endl ;
 		return EXIT_FAILURE ;
 	}
 
