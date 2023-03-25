@@ -1,0 +1,3 @@
+In C++, there is a replace function available to replace a part of a string with another string. Additionally, by using the replace function, it is also possible to replace a substring of a string with another string.
+
+In this article, we will explain basic concepts such as what the replace function is, how to replace a part of a string, how to replace the entire string, how to replace everything using regular expressions, and how to replace only a part using regular expressions. We will also cover more advanced topics.
