@@ -70,7 +70,11 @@ static int	replace_file( const std::string & filename, const std::string & s1, c
 	std::string line ;
 	while ( ifs.good() ) {
 		std::getline( ifs, line ) ;
-		ofs << replace( line, s1, s2 ) << std::endl ;
+		ofs << replace( line, s1, s2 ) ;
+		if ( ifs.peek() != EOF )
+			ofs << std::endl ;
+		else
+			ofs.flush() ;
 		if ( ofs.fail() ) {
 			std::cerr << "Error: Failed to write." << std::endl ;
 			return EXIT_FAILURE ;
