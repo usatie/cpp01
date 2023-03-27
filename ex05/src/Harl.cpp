@@ -1,15 +1,21 @@
 #include "Harl.hpp"
 #include <iostream>
 
-#define CALL_MEMBER_FN(object,ptrToMember)  ((object)->*(ptrToMember))
+#define CALL_MEMBER_FN(object,ptrToMember)  ((object)->*(ptrToMember)) ()
 const std::string Harl::levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"} ;
 const HarlMemFn Harl::funcs[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error} ;
 
+// Many ways of calling member function.
+// this->debug() ;
+// ((this)->debug)() ;
+// ((this)->*(f))() ;
+// ((obj)->*(f))() ;
+// CALL_MEMBER_FN(obj, f)
 void Harl::complain( std::string level )
 {
 	for ( int i = 0; i < 4; i++ ) {
 		if ( level == levels[i] ) {
-			CALL_MEMBER_FN(this, funcs[i]) () ;
+			CALL_MEMBER_FN(this, funcs[i]) ;
 		}
 	} 
 }
